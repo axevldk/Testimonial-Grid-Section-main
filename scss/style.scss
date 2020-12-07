@@ -13,7 +13,7 @@ $break-laptop: 1023px;
 }
 
 @mixin card( $card-id ) {
-  &[card-id="#{$card-id}"] {
+  &[data-id="#{$card-id}"] {
     grid-area: card-#{$card-id};
   }
 }
