@@ -1,9 +1,7 @@
-@import url("https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500;600&display=swap");
-
 $break-tablet: 767px;
 $break-laptop: 1023px;
 
-@mixin respond-to($media) {
+@mixin respond-max($media) {
   @if $media == tablet {
     @media (max-width: $break-tablet) { @content; }
   }
@@ -31,7 +29,7 @@ html, body {
   margin: 0;
   font-family: 'Barlow Semi Condensed';
   font-size: 18px;
-  @include respond-to(tablet) {
+  @include respond-max(tablet) {
     font-size: 13px;
   }
 }
@@ -64,14 +62,14 @@ body {
       "card-3 card-4 card-4 card-5";
     column-gap: 30px;
     row-gap: 24px;
-    @include respond-to(laptop) {
+    @include respond-max(laptop) {
       grid-template-columns: repeat(3, 1fr);
       grid-template-areas: 
         "card-1 card-1 card-2"
         "card-3 card-4 card-4"
         "card-5 card-5 card-5";
     }
-    @include respond-to(tablet) {
+    @include respond-max(tablet) {
       grid-template-columns: repeat(1, 1fr);
       grid-template-areas: "card-1" "card-2" "card-3" "card-4" "card-5";
     }
@@ -103,7 +101,7 @@ body {
       background-image: url(../images/bg-pattern-quotation.svg);
       background-repeat: no-repeat;
       background-position: right 80px top 0;
-      @include respond-to(tablet) {
+      @include respond-max(tablet) {
         background-position: right 24px top 0;
       }
     }
@@ -129,11 +127,6 @@ body {
         opacity: 0.5;
       }
     }
-    &__title {
-      font-size: 20px;
-      margin-bottom: 15px;
-      font-weight: bold;
-    }
     &__description {
       opacity: 0.7;
     }
@@ -146,6 +139,11 @@ body {
       .testimonial-card__avatar {
         border: none;
       }
+    }
+    h2 {
+      font-size: 20px;
+      margin-bottom: 15px;
+      font-weight: bold;
     }
   }
 }
